@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, redirect
-from .forms import MyForm
-from .models import Fitnessforlife
+from .forms import MessageForm
+from .models import *
 
 def main(request):
   template = loader.get_template('main.html')
@@ -10,34 +10,55 @@ def main(request):
 
 def fitnessforlife(request):
   if request.method == 'POST':
-    form = MyForm(request.POST)
+    form = MessageForm(request.POST)
     if form.is_valid():
-      input1 = form.cleaned_data['input1']
-      return redirect('success_url')
+      message = form.cleaned_data['message']
+      Fitnessforlife.objects.create(message=message)
+      return render(request, 'template.html')
   else:
-    form = MyForm()
-  return render(request, 'template.html', {'form': form}, context_instance=RequestContext(request))
+    form = MessageForm()
+  return render(request, 'template.html', {'form': form})
 
 def fitnesstrzykorony(request):
-  template = loader.get_template('template.html')
-  return HttpResponse(template.render())
+  if request.method == 'POST':
+    form = MessageForm(request.POST)
+    if form.is_valid():
+      message = form.cleaned_data['message']
+      Fitnesstrzykorony.objects.create(message=message)
+      return render(request, 'template.html')
+  else:
+    form = MessageForm()
+  return render(request, 'template.html', {'form': form})
 
 def halnygym(request):
-  template = loader.get_template('template.html')
-  return HttpResponse(template.render())
+  if request.method == 'POST':
+    form = MessageForm(request.POST)
+    if form.is_valid():
+      message = form.cleaned_data['message']
+      Halnygym.objects.create(message=message)
+      return render(request, 'template.html')
+  else:
+    form = MessageForm()
+  return render(request, 'template.html', {'form': form})
 
 def oxygym(request):
-  template = loader.get_template('template.html')
-  return HttpResponse(template.render())
+  if request.method == 'POST':
+    form = MessageForm(request.POST)
+    if form.is_valid():
+      message = form.cleaned_data['message']
+      Oxygym.objects.create(message=message)
+      return render(request, 'template.html')
+  else:
+    form = MessageForm()
+  return render(request, 'template.html', {'form': form})
 
 def xtremefitness(request):
-  template = loader.get_template('template.html')
-  return HttpResponse(template.render())
-
-def submit_view(request):
   if request.method == 'POST':
-    input1 = request.POST['input1']
-    Fitnessforlife.objects.create(message=input1)
-    return redirect('success_url')
+    form = MessageForm(request.POST)
+    if form.is_valid():
+      message = form.cleaned_data['message']
+      Xtremefitness.objects.create(message=message)
+      return render(request, 'template.html')
   else:
-    return redirect('main_url')
+    form = MessageForm()
+  return render(request, 'template.html', {'form': form})

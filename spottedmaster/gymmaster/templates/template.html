@@ -9,10 +9,9 @@
 
   <p><a href="/">GO BACK</a></p>
 
-  <form action="{% url 'submit_url' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="input1" placeholder="Input 1">
-    <button type="submit">Submit</button>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Send">
   </form>
-
 {% endblock %}
