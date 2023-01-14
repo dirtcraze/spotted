@@ -8,57 +8,20 @@ def main(request):
   template = loader.get_template('main.html')
   return HttpResponse(template.render())
 
-def fitnessforlife(request):
-  if request.method == 'POST':
-    form = MessageForm(request.POST)
-    if form.is_valid():
-      message = form.cleaned_data['message']
+
+def handle_form(request):
+  form = MessageForm(request.POST or None)
+  if request.method == "POST" and form.is_valid():
+    message = form.cleaned_data["message"]
+    if request.path == "/fitnessforlife/":
       Fitnessforlife.objects.create(message=message)
-      return render(request, 'template.html')
-  else:
-    form = MessageForm()
-  return render(request, 'template.html', {'form': form})
-
-def fitnesstrzykorony(request):
-  if request.method == 'POST':
-    form = MessageForm(request.POST)
-    if form.is_valid():
-      message = form.cleaned_data['message']
+    elif request.path == "/fitnesstrzykorony/":
       Fitnesstrzykorony.objects.create(message=message)
-      return render(request, 'template.html')
-  else:
-    form = MessageForm()
-  return render(request, 'template.html', {'form': form})
-
-def halnygym(request):
-  if request.method == 'POST':
-    form = MessageForm(request.POST)
-    if form.is_valid():
-      message = form.cleaned_data['message']
+    elif request.path == "/halnygym/":
       Halnygym.objects.create(message=message)
-      return render(request, 'template.html')
-  else:
-    form = MessageForm()
-  return render(request, 'template.html', {'form': form})
-
-def oxygym(request):
-  if request.method == 'POST':
-    form = MessageForm(request.POST)
-    if form.is_valid():
-      message = form.cleaned_data['message']
+    elif request.path == "/oxygym/":
       Oxygym.objects.create(message=message)
-      return render(request, 'template.html')
-  else:
-    form = MessageForm()
-  return render(request, 'template.html', {'form': form})
-
-def xtremefitness(request):
-  if request.method == 'POST':
-    form = MessageForm(request.POST)
-    if form.is_valid():
-      message = form.cleaned_data['message']
+    elif request.path == "/xtremefitness/":
       Xtremefitness.objects.create(message=message)
-      return render(request, 'template.html')
-  else:
-    form = MessageForm()
-  return render(request, 'template.html', {'form': form})
+    return redirect("/")
+  return render(request, "template.html", {"form": form})

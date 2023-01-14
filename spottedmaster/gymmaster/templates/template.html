@@ -7,11 +7,11 @@
 
 {% block content %}
 
-  <p><a href="/">GO BACK</a></p>
+    <p><a href="/">GO BACK</a></p>
 
-  <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Send">
-  </form>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Send">
+    </form>
 {% endblock %}

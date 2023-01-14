@@ -3,9 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.main, name='main'),
-    path('fitnessforlife/', views.fitnessforlife, name='Fitness for Life - Nowy Sącz'),
-    path('fitnesstrzykorony/', views.fitnessforlife, name='Fitness Trzy Korony'),
-    path('halnygym/', views.halnygym, name='HALNY Nowy Sącz'),
-    path('oxygym/', views.oxygym, name='Oxy Gym Nowy Sącz'),
-    path('xtremefitness/', views.xtremefitness, name='Xtreme Fitness Nowy Sącz'),
+    path('fitnessforlife/', views.handle_form, name='fitnessforlife'),
+    path('fitnesstrzykorony/', views.handle_form, name='fitnesstrzykorony'),
+    path('halnygym/', views.handle_form, name='halnygym'),
+    path('oxygym/', views.handle_form, name='oxygym'),
+    path('xtremefitness/', views.handle_form, name='xtremefitness'),
 ]
