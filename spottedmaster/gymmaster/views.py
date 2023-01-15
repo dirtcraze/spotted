@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect
 from django.urls import resolve
 from .forms import MessageForm
 from .models import *
-
 def main(request):
   template = loader.get_template('main.html')
   return HttpResponse(template.render())
@@ -26,5 +25,6 @@ def handle_form(request):
       Oxygym.objects.create(message=message, user_ip=ip, device=device)
     elif view_name == "xtremefitness":
       Xtremefitness.objects.create(message=message, user_ip=ip, device=device)
+    
     # return redirect("/")
   return render(request, "template.html", {"form": form})
