@@ -3,7 +3,7 @@ from django.template import loader
 from django.shortcuts import render
 from django.urls import resolve
 from .forms import MessageForm
-
+from .models import *
 def main(request):
   template = loader.get_template('main.html')
   return HttpResponse(template.render())
