@@ -28,7 +28,6 @@ class Bot:
         if len(rows) == 5:
             for row in rows:
                 print(row)
-                # create img from string, save it, and add path to list
                 path = create_image(
                     row[1], row[3][row[3].find(" "):row[3].rfind(":")], row[0])
                 photos.append(path)
