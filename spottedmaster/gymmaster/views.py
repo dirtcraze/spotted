@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.urls import resolve
 from .forms import MessageForm
 from .models import Fitnessforlife, Fitnesstrzykorony, Halnygym, Oxygym, Xtremefitness
-from profanity_check import predict, predict_prob
 
 def main(request):
     template = loader.get_template('main.html')
@@ -34,4 +33,4 @@ def handle_form(request):
                 message=message, user_ip=ip, device=device)
 
         # return redirect("/")
-    return render(request, "template.html", {"form": form})
+    return render(request, "index.html", {"form": form})
