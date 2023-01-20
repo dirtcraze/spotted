@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form>
+    <form id="form" method="post">
       {% csrf_token %}
       <div id="test">
         {{ form.message }}
@@ -20,6 +20,7 @@
         <p class="tip">Kliknij <span style="font-weight: bold; color: white;">Enter</span> aby potwierdzić</p>
         
       </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="{% static 'scripts.js' %}"></script>
 </body>
 </html>

@@ -29,9 +29,6 @@
             type: "POST",
             data: $("#form").serialize(),
             success: function() {
-              $("#success-message").text("Wiadomość została pomyślnie wysłana!");
-              $("#success-message").css("display", "block");
-              $("#success-message").css("margin-top", "20px");
               $("#form")[0].reset();
             }
           });

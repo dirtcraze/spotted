@@ -14,7 +14,7 @@ def main(request):
 def handle_form(request):
     form = MessageForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
-        message = predict(form.cleaned_data["message"])
+        message = form.cleaned_data["message"]
         ip = request.META['REMOTE_ADDR']
         device = request.META.get('HTTP_USER_AGENT')
         view_name = resolve(request.path_info).url_name
