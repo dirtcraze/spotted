@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+/* Define global variables for colors, font and animation speed */
+:root {
+    --color-red: #ec1840;
+    --color-white: #fff;
+    --color-black-1: #111;
+    --speed-fast: 0.8s;
+}
+
+/* Reset default margins and padding for all elements, and set box-sizing to border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the background color, animation and font for the entire page */
+body {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #111E25 0%, #111 100%);
+    background: var(--color-black-1);
+    font-family: 'Lato', sans-serif;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/* Center the form element in the middle of the page */
+.form-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Style the title text */
+#title-text {
+    padding: 3.125rem 0 1.5rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: .125rem;
+    pointer-events: none;
+    transition: all .4s cubic-bezier(.4, .25, .8, .3) .05s;
+}
+
+/* Style the message area input */
+#message-area {
+    display: block;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    resize: none;
+    background: transparent;
+    border-bottom: 1px solid #ec1840;
+    color: var(--color-white);
+    padding: .25rem 0 0.8rem;
+    width: 70vw;
+    letter-spacing: .125rem;
+    font-size: 2rem;
+    transition: all .5s cubic-bezier(.4, .25, .8, .3);
+}
+
+/* Style the submit button */
+#submit-button {
+    margin-top: 40px;
+    float: right;
+    width: 180px;
+    height: 60px;
+    line-height: 60px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-white);
+    border: 1px solid var(--color-red);
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Change the submit button style on hover */
+#submit-button:hover {
+    border: 1px solid transparent;
+    background: var(--color-red) url(https://i.postimg.cc/wBXGXbWN/pixel.png);
+    transition-delay: 0.8s;
+    background-size: 180px;
+    animation: animate var(--speed-fast) steps(8) forwards;
+}
+
+/* Animate the background image for the submit button */
+@keyframes animate {
+    0% {
+    background-position-y: 0;
+    }
+    100% {
+    background-position-y: -480px;
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    }
+}
+
+/* Apply Quicksand font to h3 elements */
+h3 {
+    font-family: Quicksand;
+    letter-spacing: .05rem;
+}
+
+/* Position the alert box */
+#alert-box {
+    position: fixed;
+    width: 450px;
+    bottom: 2%;
+    right: 2%;
+}
+
+/* Basic styling for the alert box */
+.alert{
+    margin:20px auto;
+    padding:30px;
+    position:relative;
+    border-radius:5px;
+}
+
+/* Style the close button for the alert box */
+.close{
+    position:absolute;
+    width:30px;
+    height:30px;
+    opacity:0.5;
+    border-width:1px;
+    border-style:solid;
+    border-radius:50%;
+    right:15px;
+    top:28px;
+    text-align:center;
+    font-size:1.6em;
+    cursor:pointer;
+}
+
+/* Style for the success alert */
+.success-alert {
+    background-color: #40ad87;
+    border-left:5px solid #087f5b;
+}
+
+@media only screen and (max-width: 480px) {
+  /* Styles for mobile phones go here */
+}
