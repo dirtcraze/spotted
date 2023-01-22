@@ -1,16 +1,53 @@
-{% extends "master.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'mainstyle.css' %}">
+    <title>YourSpotted | Wyślij anonimową wiadomość</title>
+</head>
+<body>
+<div class="Menu">
+  <ul class="Menu-list" data-offset="10">
+    <li class="Menu-list-item" data-offset="20" onclick>
+      <a href="fitnessforlife/">
+      Fitness For Life
+      <span class="Mask"><span>Fitness For Life</span></span>
+      <span class="Mask"><span>Fitness For Life</span></span>
+      </a>
+    </li>
+    <li class="Menu-list-item" data-offset="16" onclick>
+      <a href="fitnesstrzykorony/">
+      Fitness Trzy Korony
+      <span class="Mask"><span>Fitness Trzy Korony</span></span>
+      <span class="Mask"><span>Fitness Trzy Korony</span></span>
+      </a>
+    </li>
+    <li class="Menu-list-item" data-offset="12" onclick>
+      <a href="halnygym/">
+      Halny Gym
+      <span class="Mask"><span>Halny Gym</span></span>
+      <span class="Mask"><span>Halny Gym</span></span>
+      </a>
+    </li>
+    <li class="Menu-list-item" data-offset="8" onclick>
+      <a href="oxygym/">
+      Oxy Gym
+      <span class="Mask"><span>Oxy Gym</span></span>
+      <span class="Mask"><span>Oxy Gym</span></span>
+      </a>
+    </li>
+    <li class="Menu-list-item" data-offset="4" onclick>
+      <a href="xtremefitness/">
+      Xtreme Fitness
+      <span class="Mask"><span>Xtreme Fitness</span></span>
+      <span class="Mask"><span>Xtreme Fitness</span></span>
+      </a>
+    </li>
+  </ul>
+</div>
+</body>
+<script src="{% static 'ss.js' %}">
 
-{% block title %}
-  My Tennis Club
-{% endblock %}
-
-
-{% block content %}
-  <h1>Siłownie</h1>
-  
-  <p>Check out all our <a href="fitnessforlife/">fitnessforlife</a></p>
-  <p>Check out all our <a href="fitnesstrzykorony/">fitnesstrzykorony</a></p>
-  <p>Check out all our <a href="halnygym/">halnygym</a></p>
-  <p>Check out all our <a href="oxygym/">oxygym</a></p>
-  <p>Check out all our <a href="xtremefitness/">xtremefitness</a></p>
-{% endblock %}
+</script>
+</html>
