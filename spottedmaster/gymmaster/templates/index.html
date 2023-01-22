@@ -8,6 +8,11 @@
 </head>
 
 <body>
+    <div class="cross-container">
+        <div id="elo">
+            <a id="crossq" href="{% url 'main' %}"></a>
+        </div>
+    </div>
     <div class="form-center">
         <form id="form" method="post">
             {% csrf_token %}
@@ -37,13 +42,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.js"></script>
     <script src="{% static 'script.js' %}"></script>
-    <script !src="">
-
-      $(document).ready(function() {
-        $("#message-area").on("input", function() {
-            $("#counter").text($(this).val().length + "/255 znaków")
-        });
-      });
-    </script>
 </body>
 </html>

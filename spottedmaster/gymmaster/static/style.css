@@ -19,6 +19,7 @@ body {
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to bottom right, #111E25 0%, #111 100%);
+    background-image: linear-gradient(to bottom right, #1a1a1a 0%, #111 100%);
     background: #111;
     font-family: 'Lato', sans-serif;
     animation: fadeInAnimation ease 3s;
@@ -104,6 +105,13 @@ body {
     100% {
     opacity: 1;
     }
+}
+
+@media only screen and (max-width: 900px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 /* Apply Quicksand font to h3 elements */
@@ -205,4 +213,47 @@ footer {
     text-align: center;
     font-size: 0.9rem;
     color: #949494FF;
+}
+
+a {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+#crossq::before {
+    position: relative;
+    display: block;
+    margin: -2px -10px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.874 5.322A1.098 1.098 0 1 0 5.32 6.874L8.448 10 5.32 13.127a1.098 1.098 0 0 0 1.553 1.552L10 11.552l3.127 3.127a1.098 1.098 0 0 0 1.552-1.552L11.552 10l3.127-3.126a1.097 1.097 0 1 0-1.553-1.552L10 8.448 6.874 5.322Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+}
+
+#crossq {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    height: 44px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+    padding: 12px 20px;
+    width: 44px;
+    text-decoration: none;
+}
+
+#crossq:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cross-container {
+    position: absolute;
+    padding: 24px 24px;
 }

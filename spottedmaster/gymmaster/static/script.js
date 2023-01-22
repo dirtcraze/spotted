@@ -13,6 +13,7 @@ $(document).ready(function() {
             type: "POST",
             data: $("#form").serialize(),
             success: function() {
+                $("#counter").text("0/255 znaków");
                 // Czyszczenie formularza
                 $("#form")[0].reset();
                 // Powrót do domyślnej wysokości pola tekstowego
@@ -56,3 +57,16 @@ setInterval(function(){
         $(this).remove();
     });
 }, 9000);
+
+
+$(document).ready(function() {
+    $("#message-area").on("input", function() {
+        $("#counter").text($(this).val().length + "/255 znaków")
+    });
+});
+
+$(document).ready(function(){
+  var colors = ['#111E25', '#1a1a1a', '#111'];
+  var randomColor = colors[Math.floor(Math.random() * colors.length)];
+  $('body').css('background', 'linear-gradient(to bottom right, ' + randomColor + ' 0%, #111 100%)');
+});
