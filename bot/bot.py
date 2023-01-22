@@ -4,7 +4,9 @@ import sqlite3
 from pillow.pillow import create_image
 import utils
 import datetime
-
+import os
+import locale
+locale.setlocale(locale.LC_ALL, 'pl_PL.UTF-8')
 class Bot:
     def __init__(self, login, password, table_name, ig_name):
         self.cl = Client()
@@ -34,13 +36,15 @@ class Bot:
                 date_object = datetime.datetime.strptime(row[3], "%Y-%m-%d %H:%M:%S.%f")
                 formatted_date = date_object.strftime("%d %B %Y \nGODZ. %H:%M")
                 path = create_image(
-                    row[1], formatted_date, counter, ig_name)
+                    row[1], formatted_date.upper(), counter, ig_name)
                 photos.append(path)
                 self.cur.execute("UPDATE " + table_name +
                                  " SET is_posted = 1 WHERE id = " + str(row[0]))
                 self.con.commit()
             self.con.close()
             self.album_upload(photos, "Opis placeholder")
+            for path in photos:
+                os.remove(path)
 
 
 fitnessForLife = Bot(cfg.FITNESSFORLIFE_USERNAME,
